@@ -1,0 +1,325 @@
+/* 正文段落样式覆盖 */
+
+/* 为所有文章内容的段落设置首行缩进 */
+.article-entry p,
+body .article-entry p,
+body.official-document .article-entry p {
+  text-indent: 2em !important;  /* 缩进2个字符的宽度，使用!important确保优先级 */
+  margin: 1em 0;     /* 保持段落间距 */
+  line-height: 1.8;  /* 行高 */
+}
+
+/* 特殊情况下不需要缩进的元素 */
+.article-entry blockquote p,
+.article-entry li p,
+.article-entry .caption p,
+.article-entry .video-container p,
+.article-entry .pullquote p,
+.article-entry table p,
+.article-entry pre p,
+.article-entry code p,
+body .article-entry blockquote p,
+body .article-entry li p,
+body .article-entry .caption p,
+body .article-entry .video-container p,
+body .article-entry .pullquote p,
+body .article-entry table p,
+body .article-entry pre p,
+body .article-entry code p,
+body.official-document .article-entry blockquote p,
+body.official-document .article-entry li p,
+body.official-document .article-entry .caption p,
+body.official-document .article-entry .video-container p,
+body.official-document .article-entry .pullquote p,
+body.official-document .article-entry table p,
+body.official-document .article-entry pre p,
+body.official-document .article-entry code p,
+/* 自定义模板元素 */
+.article-entry .custom-alert p,
+.article-entry .custom-blockquote p,
+.article-entry .custom-code-block p,
+.article-entry .side-by-side-images p,
+.article-entry .custom-template p,
+body .article-entry .custom-alert p,
+body .article-entry .custom-blockquote p,
+body .article-entry .custom-code-block p,
+body .article-entry .side-by-side-images p,
+body .article-entry .custom-template p,
+body.official-document .article-entry .custom-alert p,
+body.official-document .article-entry .custom-blockquote p,
+body.official-document .article-entry .custom-code-block p,
+body.official-document .article-entry .side-by-side-images p,
+body.official-document .article-entry .custom-template p {
+  text-indent: 0 !important;    /* 这些特殊元素内的段落不缩进 */
+}
+
+/* 确保标题不会缩进 */
+.article-entry h1,
+.article-entry h2,
+.article-entry h3,
+.article-entry h4,
+.article-entry h5,
+.article-entry h6,
+body .article-entry h1,
+body .article-entry h2,
+body .article-entry h3,
+body .article-entry h4,
+body .article-entry h5,
+body .article-entry h6,
+body.official-document .article-entry h1,
+body.official-document .article-entry h2,
+body.official-document .article-entry h3,
+body.official-document .article-entry h4,
+body.official-document .article-entry h5,
+body.official-document .article-entry h6 {
+  text-indent: 0 !important;
+  margin-top: 1.5em;
+  margin-bottom: 0.8em;
+}
+
+/* 确保列表项不会缩进 */
+.article-entry ul,
+.article-entry ol,
+body .article-entry ul,
+body .article-entry ol,
+body.official-document .article-entry ul,
+body.official-document .article-entry ol {
+  text-indent: 0 !important;
+}
+
+/* 确保代码块不会缩进 */
+.article-entry pre,
+.article-entry code,
+body .article-entry pre,
+body .article-entry code,
+body.official-document .article-entry pre,
+body.official-document .article-entry code {
+  text-indent: 0 !important;
+}
+
+/* 自定义模板元素样式 */
+.article-entry div[class^="custom-"],
+.article-entry div[class*=" custom-"],
+.article-entry .side-by-side-images,
+body .article-entry div[class^="custom-"],
+body .article-entry div[class*=" custom-"],
+body .article-entry .side-by-side-images,
+body.official-document .article-entry div[class^="custom-"],
+body.official-document .article-entry div[class*=" custom-"],
+body.official-document .article-entry .side-by-side-images {
+  margin: 1.5em 0;
+  text-indent: 0 !important;
+}
+
+/* 确保自定义模板中的标题不缩进 */
+.article-entry div[class^="custom-"] h1,
+.article-entry div[class^="custom-"] h2,
+.article-entry div[class^="custom-"] h3,
+.article-entry div[class^="custom-"] h4,
+.article-entry div[class^="custom-"] h5,
+.article-entry div[class^="custom-"] h6,
+.article-entry div[class*=" custom-"] h1,
+.article-entry div[class*=" custom-"] h2,
+.article-entry div[class*=" custom-"] h3,
+.article-entry div[class*=" custom-"] h4,
+.article-entry div[class*=" custom-"] h5,
+.article-entry div[class*=" custom-"] h6,
+body .article-entry div[class^="custom-"] h1,
+body .article-entry div[class^="custom-"] h2,
+body .article-entry div[class^="custom-"] h3,
+body .article-entry div[class^="custom-"] h4,
+body .article-entry div[class^="custom-"] h5,
+body .article-entry div[class^="custom-"] h6,
+body .article-entry div[class*=" custom-"] h1,
+body .article-entry div[class*=" custom-"] h2,
+body .article-entry div[class*=" custom-"] h3,
+body .article-entry div[class*=" custom-"] h4,
+body .article-entry div[class*=" custom-"] h5,
+body .article-entry div[class*=" custom-"] h6,
+body.official-document .article-entry div[class^="custom-"] h1,
+body.official-document .article-entry div[class^="custom-"] h2,
+body.official-document .article-entry div[class^="custom-"] h3,
+body.official-document .article-entry div[class^="custom-"] h4,
+body.official-document .article-entry div[class^="custom-"] h5,
+body.official-document .article-entry div[class^="custom-"] h6,
+body.official-document .article-entry div[class*=" custom-"] h1,
+body.official-document .article-entry div[class*=" custom-"] h2,
+body.official-document .article-entry div[class*=" custom-"] h3,
+body.official-document .article-entry div[class*=" custom-"] h4,
+body.official-document .article-entry div[class*=" custom-"] h5,
+body.official-document .article-entry div[class*=" custom-"] h6 {
+  text-indent: 0 !important;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+} 
+
+/* 美化代码块样式 */
+.article-entry pre,
+body .article-entry pre,
+body.official-document .article-entry pre {
+  background-color: #f6f8fa !important;
+  border: 1px solid #e1e4e8 !important;
+  border-radius: 6px !important;
+  padding: 16px !important;
+  overflow: auto !important;
+  line-height: 1.45 !important;
+  margin: 1.5em 0 !important;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace !important;
+  font-size: 14px !important;
+  color: #24292e !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 代码块中的代码 */
+.article-entry pre code,
+body .article-entry pre code,
+body.official-document .article-entry pre code {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 14px !important;
+  color: #24292e !important;
+  white-space: pre !important;
+  word-break: normal !important;
+  word-wrap: normal !important;
+  line-height: 1.5 !important;
+  tab-size: 4 !important;
+  hyphens: none !important;
+}
+
+/* 行内代码样式 */
+.article-entry code,
+body .article-entry code,
+body.official-document .article-entry code {
+  background-color: rgba(27, 31, 35, 0.05) !important;
+  border-radius: 3px !important;
+  font-size: 85% !important;
+  margin: 0 !important;
+  padding: 0.2em 0.4em !important;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace !important;
+  color: #24292e !important;
+}
+
+/* 代码块标题样式 - 如果有使用代码块标题 */
+.article-entry .code-block-title,
+body .article-entry .code-block-title,
+body.official-document .article-entry .code-block-title {
+  background-color: #f6f8fa !important;
+  border: 1px solid #e1e4e8 !important;
+  border-bottom: none !important;
+  border-top-left-radius: 6px !important;
+  border-top-right-radius: 6px !important;
+  padding: 8px 16px !important;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace !important;
+  font-weight: bold !important;
+  color: #24292e !important;
+  font-size: 14px !important;
+}
+
+/* 如果有代码块标题，调整代码块的边框半径 */
+.article-entry .code-block-title + pre,
+body .article-entry .code-block-title + pre,
+body.official-document .article-entry .code-block-title + pre {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* 修复代码块外层黑框问题 */
+figure.highlight {
+  background: none !important;
+  border: 1px solid #333 !important; /* 改为黑色边框 */
+  padding: 0 !important;
+  margin: 1.5em 0 !important;
+  border-radius: 6px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+  width: 100% !important; /* 确保填充整个宽度 */
+}
+
+/* 确保代码块内部样式正确 */
+figure.highlight pre {
+  margin: 0 !important;
+  padding: 16px !important;
+  background-color: #f8f8f8 !important;
+  border: none !important;
+  border-radius: 6px !important;
+}
+
+/* 代码块行号样式 */
+figure.highlight .gutter {
+  padding-right: 10px !important;
+  text-align: right !important;
+  background-color: #f8f8f8 !important;
+  color: #999 !important;
+  border-right: 1px solid #e8e8e8 !important;
+  user-select: none !important;
+}
+
+figure.highlight .code {
+  padding-left: 10px !important;
+  background-color: #f8f8f8 !important;
+}
+
+/* 隐藏网站顶部header */
+#header {
+    display: none !important;
+  }
+#main-nav {
+    display: block !important;
+}
+.main-nav-link {
+    display: block !important;
+}
+
+/* 隐藏所有可能的图标 */
+.main-nav-link .fa,
+.main-nav-link .fa-home,
+.main-nav-link .fa-archive,
+.main-nav-link i[class*="fa-"] {
+    display: none !important;
+}
+
+.main-nav-link i,
+.main-nav-link span[class*="icon"],
+.main-nav-link svg {
+    display: none !important;
+}
+
+.main-nav-link::before,
+.main-nav-link::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+}
+
+a[href="/"]::before,
+a[href="/"]::after,
+a[href="/archives"]::before,
+a[href="/archives"]::after {
+    display: none !important;
+    content: none !important;
+}
+
+.main-nav-link,
+a.main-nav-link {
+    background: none !important;
+    background-image: none !important;
+    font-style: normal !important;
+}
+
+/* 隐藏导航切换按钮的图标 */
+.nav-icon {
+    display: none !important;
+}
+
+/* 完全隐藏顶部导航链接 */
+a.main-nav-link[href="/"],
+a.main-nav-link[href="/archives"],
+a[href="/"],
+a[href="/archives"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}

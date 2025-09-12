@@ -1,0 +1,11 @@
+{
+  "name": "hexo-auto-deploy",
+  "version": "1.0.0",
+  "description": "自动监视文件变化并部署 Hexo 博客",
+  "scripts": {
+    "watch": "nodemon --watch source --watch _config.yml --watch themes -e md,ejs,styl,yml,js,css --ignore public/ --ignore .deploy_git/ --exec \"hexo clean && hexo generate && hexo deploy\""
+  },
+  "dependencies": {
+    "nodemon": "^2.0.22"
+  }
+} 

@@ -1,0 +1,305 @@
+/* 透明背景样式 - 完全透明版 */
+
+/* 页面主体背景透明 */
+body {
+  background-color: transparent !important;
+}
+
+/* 自定义背景图片 */
+body.custom-background {
+  position: relative;
+  min-height: 100vh; /* 确保body至少有视口高度 */
+}
+
+body.custom-background::before {
+  content: "";
+  position: absolute; /* 改为absolute而不是fixed，这样背景会随页面滚动 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* 初始高度，后续由脚本或类动态调整 */
+  z-index: -1;
+  /* 默认设置为宽度优先，不裁剪宽度 */
+  background-size: 100% auto; /* 宽度100%，高度自适应 */
+  background-position: center top; /* 居中顶部对齐 */
+  background-repeat: no-repeat;
+  background-attachment: scroll; /* 改为scroll，使背景随内容滚动 */
+}
+
+/* 第二张背景的基础层，默认高度为0，由脚本按需开启 */
+body.custom-background::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  z-index: -1;
+  background-size: 100% auto;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+/* 添加滚动模式选项 */
+body.bg-fixed::before {
+  position: fixed !important; /* 固定背景，滚动时不动 */
+  background-attachment: fixed !important;
+  height: 100vh !important; /* 固定模式只需要视口高度 */
+}
+
+body.bg-scroll::before {
+  position: absolute !important; /* 背景随内容滚动 */
+  background-attachment: scroll !important;
+  /* 高度交由运行时脚本动态设置 */
+}
+
+/* 添加自适应背景图片选项 */
+body.bg-contain::before {
+  background-size: contain !important; /* 完整显示图片 */
+}
+
+body.bg-auto::before {
+  background-size: auto !important; /* 使用图片原始尺寸 */
+}
+
+body.bg-100::before {
+  background-size: 100% 100% !important; /* 拉伸填满 */
+}
+
+body.bg-width-100::before {
+  background-size: 100% auto !important; /* 宽度100%，高度自适应 */
+}
+
+body.bg-height-100::before {
+  background-size: auto 100% !important; /* 高度100%，宽度自适应 */
+}
+
+body.bg-cover::before {
+  background-size: cover !important; /* 覆盖整个区域，可能裁剪部分图片 */
+}
+
+body.bg-top::before {
+  background-position: center top !important; /* 顶部对齐 */
+}
+
+body.bg-bottom::before {
+  background-position: center bottom !important; /* 底部对齐 */
+}
+
+body.bg-left::before {
+  background-position: left center !important; /* 左侧对齐 */
+}
+
+body.bg-right::before {
+  background-position: right center !important; /* 右侧对齐 */
+}
+
+body.bg-center::before {
+  background-position: center center !important; /* 居中对齐 */
+}
+
+/* 背景图片样式变体 */
+body.bg-image-1::before {
+  background-image: url('/images/backgrounds/bg-1.jpg');
+}
+
+body.bg-image-2::before {
+  background-image: url('/images/backgrounds/bg-2.jpg');
+}
+
+body.bg-image-3::before {
+  background-image: url('/images/backgrounds/bg-3.jpg');
+}
+
+body.bg-image-4::before {
+  background-image: url('/images/backgrounds/bg-4.jpg');
+}
+
+body.bg-image-5::before {
+  background-image: url('/images/backgrounds/bg-5.jpg');
+}
+
+/* 让预设背景同时作用于 ::after */
+body.bg-image-1::after { background-image: url('/images/backgrounds/bg-1.jpg'); }
+body.bg-image-2::after { background-image: url('/images/backgrounds/bg-2.jpg'); }
+body.bg-image-3::after { background-image: url('/images/backgrounds/bg-3.jpg'); }
+body.bg-image-4::after { background-image: url('/images/backgrounds/bg-4.jpg'); }
+body.bg-image-5::after { background-image: url('/images/backgrounds/bg-5.jpg'); }
+
+/* 自定义背景图片 */
+body.bg-custom::before {
+  /* 在JS中动态设置background-image */
+}
+
+/* 背景图片不透明度设置 */
+body.bg-opacity-10::before { opacity: 0.1; }
+body.bg-opacity-20::before { opacity: 0.2; }
+body.bg-opacity-30::before { opacity: 0.3; }
+body.bg-opacity-40::before { opacity: 0.4; }
+body.bg-opacity-50::before { opacity: 0.5; }
+body.bg-opacity-60::before { opacity: 0.6; }
+body.bg-opacity-70::before { opacity: 0.7; }
+body.bg-opacity-80::before { opacity: 0.8; }
+body.bg-opacity-90::before { opacity: 0.9; }
+body.bg-opacity-100::before { opacity: 1.0; }
+
+/* 所有容器背景完全透明 */
+#container, 
+#wrap, 
+.outer,
+.inner,
+#main,
+#sidebar,
+.widget,
+.widget-wrap,
+.category-list,
+.archive-list,
+.tag-list,
+.article-inner,
+.archive-article-inner,
+.widget-wrap,
+.sidebar-toggle,
+#footer,
+.article-entry,
+.article-header,
+.article-footer,
+.article-meta,
+.article-title,
+.article-category,
+.article-tag-list,
+.article-nav,
+.comment-content,
+.page-nav {
+  background-color: transparent !important;
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* 去除所有边框和阴影 */
+* {
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+
+/* 为文字添加阴影以提高可读性 */
+.article-entry p,
+.article-entry h1,
+.article-entry h2,
+.article-entry h3,
+.article-entry h4,
+.article-entry h5,
+.article-entry h6,
+.article-entry li,
+.article-title,
+.article-meta,
+.article-category,
+.article-tag-list,
+.widget-title,
+.category-list-link,
+.archive-list-link,
+.tag-list-link,
+.article-nav-title {
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 255, 255, 0.5) !important;
+  color: #333 !important;
+}
+
+/* 链接颜色调整，确保在透明背景上可见 */
+a {
+  color: #0066cc !important;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.8) !important;
+}
+
+a:hover {
+  color: #004080 !important;
+  text-decoration: underline !important;
+}
+
+/* 确保代码块和引用块在透明背景上仍然可读 */
+pre, code {
+  background-color: rgba(245, 245, 245, 0.5) !important;
+  border: 1px solid rgba(200, 200, 200, 0.3) !important;
+}
+
+blockquote {
+  background-color: rgba(245, 245, 245, 0.5) !important;
+  border-left: 3px solid rgba(100, 100, 100, 0.3) !important;
+  padding: 10px !important;
+  margin: 10px 0 !important;
+}
+
+/* 表格样式调整 */
+table {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+th {
+  background-color: rgba(240, 240, 240, 0.5) !important;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(250, 250, 250, 0.3) !important;
+}
+
+/* 暗色主题文字调整 */
+body.dark-theme .article-entry p,
+body.dark-theme .article-entry h1,
+body.dark-theme .article-entry h2,
+body.dark-theme .article-entry h3,
+body.dark-theme .article-entry h4,
+body.dark-theme .article-entry h5,
+body.dark-theme .article-entry h6,
+body.dark-theme .article-entry li,
+body.dark-theme .article-title,
+body.dark-theme .article-meta,
+body.dark-theme .article-category,
+body.dark-theme .article-tag-list,
+body.dark-theme .widget-title,
+body.dark-theme .category-list-link,
+body.dark-theme .archive-list-link,
+body.dark-theme .tag-list-link,
+body.dark-theme .article-nav-title {
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.8), 0 0 5px rgba(0, 0, 0, 0.5) !important;
+  color: #e6e6e6 !important;
+}
+
+body.dark-theme a {
+  color: #61afef !important;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.8) !important;
+}
+
+body.dark-theme a:hover {
+  color: #8ac6f2 !important;
+}
+
+/* 保持导航栏可见性 */
+#header {
+  background: rgba(0, 0, 0, 0.5) !important;
+}
+
+.nav-icon, .main-nav-link {
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 调整分页导航 */
+.page-nav .page-number,
+.page-nav .extend {
+  background: rgba(255, 255, 255, 0.5) !important;
+  margin: 0 5px !important;
+  padding: 5px 10px !important;
+  border-radius: 3px !important;
+}
+
+/* 图片边框 */
+.article-entry img {
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* 分隔线 */
+hr {
+  border: none !important;
+  border-top: 1px dashed rgba(150, 150, 150, 0.3) !important;
+  margin: 20px 0 !important;
+}
