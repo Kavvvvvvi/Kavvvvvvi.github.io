@@ -100,10 +100,10 @@ theme: landscape
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
-   deploy:
-     type: git
-     repo: https://github.com/Kavvvvvvi/Kavvvvvvi.github.io.git
-     branch: main  # 或master，取决于GitHub默认分支设置
+deploy:
+  type: git
+  repo: https://github.com/Kavvvvvvi/Kavvvvvvi.github.io.git
+  branch: master
 
 # Custom Settings
 ## 透明背景设置
