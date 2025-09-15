@@ -46,7 +46,9 @@ hexo.extend.filter.register('after_render:html', function(str, data) {
   if (enableTransparentBg || pageEnableTransparentBg) {
     // 在head标签结束前添加CSS引用
     const cssLink = '<link rel="stylesheet" href="/css/transparent-background.css">';
-    str = str.replace('</head>', cssLink + '</head>');
+    // 同时引入安卓设备适配CSS
+    const androidCssLink = '<link rel="stylesheet" href="/css/android-fixes.css">';
+    str = str.replace('</head>', cssLink + androidCssLink + '</head>');
     
     // 获取背景图片设置
     let bgImageClass = '';
@@ -161,10 +163,21 @@ hexo.extend.filter.register('after_render:html', function(str, data) {
          * 根据页面内容长度自动调整背景图片高度
          */
         (function() {
+          // 检测是否为安卓设备
+          function isAndroidDevice() {
+            const ua = navigator.userAgent.toLowerCase();
+            return ua.indexOf("android") > -1;
+          }
+          
           function initAdaptiveBackground() {
             // 检查是否启用了透明背景
             if (!document.body.classList.contains('custom-background')) {
               return;
+            }
+            
+            // 如果是安卓设备，添加安卓设备标识类
+            if (isAndroidDevice()) {
+              document.body.classList.add('android-device');
             }
 
             // 等待页面完全加载
@@ -212,6 +225,14 @@ hexo.extend.filter.register('after_render:html', function(str, data) {
             beforeStyle.textContent = \`
               body.custom-background::before {
                 height: \${pageHeight}px !important;
+              }
+              
+              /* 安卓设备特殊处理 */
+              body.custom-background.android-device::before {
+                height: \${pageHeight}px !important;
+                background-size: cover !important;
+                background-position: center center !important;
+                position: fixed !important;
               }
             \`;
             

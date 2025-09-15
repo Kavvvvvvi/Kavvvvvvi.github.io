@@ -1,0 +1,3 @@
+[build]
+command = "npm install && npx hexo generate"
+publish = "./public" 
