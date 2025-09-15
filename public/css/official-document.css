@@ -1,0 +1,35 @@
+/* 官方文书样式 - 简化版 */
+@import url('official-document-style.css');
+
+/* 覆盖原有样式，确保样式正确应用 */
+body.official-document .article-entry {
+  font-family: "Times New Roman", "SimSun", "宋体", serif !important;
+  font-size: 16px !important;
+  line-height: 1.8 !important;
+  text-align: justify !important;
+  letter-spacing: 0.5px !important;
+  color: #333 !important;
+}
+
+body.official-document .article-entry p {
+  text-indent: 2em !important;
+  line-height: 2 !important;
+  margin: 1.5em 0 !important;
+}
+
+body.official-document .article-title {
+  font-family: "Times New Roman", "SimSun", "宋体", serif !important;
+  text-align: center !important;
+}
+
+body.official-document .article-header {
+  border-bottom: 1px solid #eee !important;
+  margin-bottom: 20px !important;
+}
+
+body.official-document .article-meta {
+  text-align: center !important;
+  margin-bottom: 2em !important;
+}
+
+/* 其他样式会从official-document-style.css中继承 */ 
