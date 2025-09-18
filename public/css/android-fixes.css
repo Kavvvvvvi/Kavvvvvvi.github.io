@@ -1,0 +1,128 @@
+ /* 安卓设备适配修复样式 */
+
+/* 针对所有安卓设备应用的基础样式 */
+.android-device.custom-background::before {
+  /* 使用硬件加速提高渲染性能 */
+  transform: translate3d(0,0,0) !important;
+  -webkit-transform: translate3d(0,0,0) !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  perspective: 1000px !important;
+  -webkit-perspective: 1000px !important;
+  will-change: transform !important;
+  
+  /* 修复背景图片缩放和定位问题 */
+  background-size: cover !important;
+  background-position: center center !important;
+  background-attachment: fixed !important;
+  position: fixed !important;
+  height: 100% !important;
+  width: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+/* 针对安卓设备的媒体查询 */
+@media screen and (-webkit-min-device-pixel-ratio: 2), 
+       screen and (min-resolution: 192dpi) {
+  
+  /* 修复背景图片显示问题 */
+  body.custom-background::before {
+    /* 确保背景图片完全覆盖 */
+    background-size: cover !important;
+    height: 100% !important;
+    min-height: 100vh !important;
+    position: fixed !important;
+  }
+  
+  /* 修复文章区域左上角黑块问题 */
+  #container, 
+  .outer, 
+  .inner, 
+  article {
+    background-color: transparent !important;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* 增强文章内容可读性 */
+  .article-inner {
+    background-color: rgba(255, 255, 255, 0.85) !important;
+    border-radius: 8px;
+    padding: 15px !important;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 确保图片在移动设备上正确显示 */
+  .article-entry img {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+    margin: 1em auto;
+  }
+  
+  /* 优化移动端布局 */
+  #main {
+    padding: 10px !important;
+  }
+  
+  /* 修复可能的溢出问题 */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* 确保页面元素不会超出屏幕 */
+  .article-entry pre,
+  .article-entry code,
+  .article-entry table {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  
+  /* 修复安卓设备上可能出现的字体渲染问题 */
+  body, p, h1, h2, h3, h4, h5, h6 {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* 修复安卓设备上可能的滚动问题 */
+  html, body {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* 增强安卓设备上的内容可见性 */
+.android-device .article-inner,
+.android-device .widget-wrap {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  position: relative !important;
+  z-index: 2 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 修复特定三星设备的问题 */
+@supports (-webkit-overflow-scrolling: touch) {
+  .android-device.custom-background::before {
+    background-attachment: scroll !important;
+  }
+}
+
+/* 针对低分辨率安卓设备的额外修复 */
+@media screen and (max-width: 480px) {
+  /* 进一步优化小屏幕设备的背景显示 */
+  body.custom-background::before {
+    background-position: center center !important;
+  }
+  
+  /* 减小内边距，提供更多内容空间 */
+  .article-inner {
+    padding: 10px !important;
+  }
+  
+  /* 减小标题字体大小 */
+  .article-title {
+    font-size: 1.5em !important;
+  }
+} 
