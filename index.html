@@ -31,9 +31,19 @@
   
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" href="/css/style-override.css"></head>
+<meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" href="/css/style-override.css"><link rel="stylesheet" href="/css/transparent-background.css"><link rel="stylesheet" href="/css/android-fixes.css"><style>
+            body.bg-custom::before,
+            body.bg-custom::after {
+              background-image: url('/images/backgrounds/1_image_imgupscaler.ai_Upscaler_4K.png');
+            }
+          
+            body.bg-custom-mobile::before,
+            body.bg-custom-mobile::after {
+              background-image: url('/images/backgrounds/c56de478-ade8-4c94-a356-3bfafc7b52e6.png');
+            }
+          </style></head>
 
-<body>
+<body class="transparent-background custom-background bg-custom bg-custom-mobile bg-opacity-30 bg-width-100 bg-top bg-scroll">
   <div id="container">
     <div id="wrap">
       <header id="header">
@@ -668,5 +678,136 @@
 
 
   </div>
-</body>
+
+      <script>
+        /**
+         * 自适应背景图片长度控制
+         * 根据页面内容长度自动调整背景图片高度
+         */
+        (function() {
+          // 检测设备类型（基于操作系统）
+          function getDeviceType() {
+            const ua = navigator.userAgent.toLowerCase();
+            
+            // 检测移动设备操作系统
+            const isMobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua);
+            
+            if (isMobile) {
+              // 进一步区分具体系统
+              if (/iphone|ipad|ipod/.test(ua)) {
+                return 'ios';
+              } else if (/android/.test(ua)) {
+                return 'android';
+              }
+              return 'mobile';
+            }
+            
+            return 'desktop'; // 桌面系统（Windows、Mac、Linux等）
+          }
+          
+          // 检测是否为安卓设备
+          function isAndroidDevice() {
+            const ua = navigator.userAgent.toLowerCase();
+            return ua.indexOf("android") > -1;
+          }
+          
+          function initAdaptiveBackground() {
+            // 检查是否启用了透明背景
+            if (!document.body.classList.contains('custom-background')) {
+              return;
+            }
+            
+            // 添加设备类型类
+            const deviceType = getDeviceType();
+            document.body.classList.add(`device-${deviceType}`);
+            
+            // 如果是移动设备，添加 mobile 类
+            if (deviceType !== 'desktop') {
+              document.body.classList.add('is-mobile');
+            } else {
+              document.body.classList.add('is-desktop');
+            }
+            
+            // 如果是安卓设备，添加安卓设备标识类
+            if (isAndroidDevice()) {
+              document.body.classList.add('android-device');
+            }
+
+            // 等待页面完全加载
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', adjustBackgroundHeight);
+            } else {
+              adjustBackgroundHeight();
+            }
+
+            // 监听窗口大小变化
+            window.addEventListener('resize', debounce(adjustBackgroundHeight, 250));
+            
+            // 监听内容变化（如果有动态内容）
+            const observer = new MutationObserver(debounce(adjustBackgroundHeight, 500));
+            observer.observe(document.body, { 
+              childList: true, 
+              subtree: true, 
+              attributes: true 
+            });
+          }
+
+          function adjustBackgroundHeight() {
+            const body = document.body;
+            
+            // 获取页面实际高度
+            const pageHeight = Math.max(
+              document.body.scrollHeight,
+              document.body.offsetHeight,
+              document.documentElement.clientHeight,
+              document.documentElement.scrollHeight,
+              document.documentElement.offsetHeight
+            );
+            
+            // 设置背景元素的高度为页面实际高度
+            const beforeStyle = document.createElement('style');
+            beforeStyle.id = 'adaptive-background-style';
+            
+            // 移除之前的样式
+            const existingStyle = document.getElementById('adaptive-background-style');
+            if (existingStyle) {
+              existingStyle.remove();
+            }
+            
+            // 设置背景元素的高度
+            beforeStyle.textContent = `
+              body.custom-background::before {
+                height: ${pageHeight}px !important;
+              }
+              
+              /* 安卓设备特殊处理 */
+              body.custom-background.android-device::before {
+                height: ${pageHeight}px !important;
+                background-size: cover !important;
+                background-position: center center !important;
+                position: fixed !important;
+              }
+            `;
+            
+            document.head.appendChild(beforeStyle);
+          }
+
+          // 防抖函数
+          function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+              const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+              };
+              clearTimeout(timeout);
+              timeout = setTimeout(later, wait);
+            };
+          }
+
+          // 初始化
+          initAdaptiveBackground();
+        })();
+      </script>
+    </body>
 </html>

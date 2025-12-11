@@ -132,6 +132,68 @@ body.bg-custom::before {
   /* 在JS中动态设置background-image */
 }
 
+/* ===== 响应式背景图片（基于设备类型） ===== */
+
+/* PC/桌面系统背景图片 */
+body.is-desktop.bg-custom::before,
+body.device-desktop.bg-custom::before {
+  /* PC版本背景由脚本设置 */
+}
+
+body.is-desktop.bg-custom-mobile::before,
+body.device-desktop.bg-custom-mobile::before {
+  /* 手机版本背景在PC上不显示 */
+  display: none !important;
+}
+
+/* 移动设备背景图片（Android、iOS等） */
+body.is-mobile.bg-custom::before,
+body.device-android.bg-custom::before,
+body.device-ios.bg-custom::before,
+body.device-mobile.bg-custom::before {
+  /* 移动设备上，优先显示PC背景（如果没有手机专用背景） */
+}
+
+body.is-mobile.bg-custom-mobile::before,
+body.device-android.bg-custom-mobile::before,
+body.device-ios.bg-custom-mobile::before,
+body.device-mobile.bg-custom-mobile::before {
+  /* 手机版本背景 */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  background-size: 100% auto;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+/* 同时兼容屏幕宽度的响应式设计（备用） */
+@media (max-width: 768px) {
+  body.bg-custom::before {
+    /* 小屏幕设备 */
+  }
+  
+  body.bg-custom-mobile::before {
+    /* 手机版本在小屏幕上显示 */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    background-size: 100% auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+  }
+}
+
 /* 背景图片不透明度设置 */
 body.bg-opacity-10::before { opacity: 0.1; }
 body.bg-opacity-20::before { opacity: 0.2; }

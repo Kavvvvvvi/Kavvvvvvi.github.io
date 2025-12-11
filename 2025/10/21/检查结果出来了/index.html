@@ -36,16 +36,19 @@
   
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" href="/css/style-override.css"><link rel="stylesheet" href="/css/transparent-background.css"><link rel="stylesheet" href="/css/android-fixes.css">
-            <style>
-              body.bg-custom::before,
-              body.bg-custom::after {
-                background-image: url('/images/backgrounds/1_image_imgupscaler.ai_Upscaler_4K.png');
-              }
-            </style>
-          <link rel="stylesheet" href="/css/official-document.css"></head>
+<meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" href="/css/official-document.css"><link rel="stylesheet" href="/css/style-override.css"><link rel="stylesheet" href="/css/transparent-background.css"><link rel="stylesheet" href="/css/android-fixes.css"><style>
+            body.bg-custom::before,
+            body.bg-custom::after {
+              background-image: url('/images/backgrounds/1_image_imgupscaler.ai_Upscaler_4K.png');
+            }
+          
+            body.bg-custom-mobile::before,
+            body.bg-custom-mobile::after {
+              background-image: url('/images/backgrounds/c56de478-ade8-4c94-a356-3bfafc7b52e6.png');
+            }
+          </style></head>
 
-<body class="transparent-background custom-background bg-custom bg-opacity-30 bg-width-100 bg-top bg-scroll" class="official-document">
+<body class="official-document transparent-background custom-background bg-custom bg-custom-mobile bg-opacity-30 bg-width-100 bg-top bg-scroll">
   <div id="container">
     <div id="wrap">
       <header id="header">
@@ -270,6 +273,26 @@
          * 根据页面内容长度自动调整背景图片高度
          */
         (function() {
+          // 检测设备类型（基于操作系统）
+          function getDeviceType() {
+            const ua = navigator.userAgent.toLowerCase();
+            
+            // 检测移动设备操作系统
+            const isMobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua);
+            
+            if (isMobile) {
+              // 进一步区分具体系统
+              if (/iphone|ipad|ipod/.test(ua)) {
+                return 'ios';
+              } else if (/android/.test(ua)) {
+                return 'android';
+              }
+              return 'mobile';
+            }
+            
+            return 'desktop'; // 桌面系统（Windows、Mac、Linux等）
+          }
+          
           // 检测是否为安卓设备
           function isAndroidDevice() {
             const ua = navigator.userAgent.toLowerCase();
@@ -280,6 +303,17 @@
             // 检查是否启用了透明背景
             if (!document.body.classList.contains('custom-background')) {
               return;
+            }
+            
+            // 添加设备类型类
+            const deviceType = getDeviceType();
+            document.body.classList.add(`device-${deviceType}`);
+            
+            // 如果是移动设备，添加 mobile 类
+            if (deviceType !== 'desktop') {
+              document.body.classList.add('is-mobile');
+            } else {
+              document.body.classList.add('is-desktop');
             }
             
             // 如果是安卓设备，添加安卓设备标识类
