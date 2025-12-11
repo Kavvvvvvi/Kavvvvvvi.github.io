@@ -348,12 +348,17 @@ hr {
 }
 
 /* ===== 手机端强制隐藏背景修复 ===== */
-/* 在小屏幕设备上强制隐藏所有背景 */
+/* 在小屏幕设备上强制隐藏所有背景和黑色元素 */
 @media (max-width: 768px) {
   body::before,
   body::after {
     display: none !important;
     visibility: hidden !important;
     background: none !important;
+  }
+  
+  /* 隐藏导航栏黑色背景 */
+  #header {
+    background: transparent !important;
   }
 }
