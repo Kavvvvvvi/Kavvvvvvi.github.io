@@ -346,3 +346,14 @@ hr {
   border-top: 1px dashed rgba(150, 150, 150, 0.3) !important;
   margin: 20px 0 !important;
 }
+
+/* ===== 手机端强制隐藏背景修复 ===== */
+/* 在小屏幕设备上强制隐藏所有背景 */
+@media (max-width: 768px) {
+  body::before,
+  body::after {
+    display: none !important;
+    visibility: hidden !important;
+    background: none !important;
+  }
+}
