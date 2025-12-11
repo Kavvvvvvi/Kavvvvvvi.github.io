@@ -158,39 +158,20 @@ body.is-mobile.bg-custom-mobile::before,
 body.device-android.bg-custom-mobile::before,
 body.device-ios.bg-custom-mobile::before,
 body.device-mobile.bg-custom-mobile::before {
-  /* 手机版本背景 */
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: -1;
-  background-size: 100% auto;
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
+  /* 手机版本没有背景 */
+  display: none !important;
 }
 
 /* 同时兼容屏幕宽度的响应式设计（备用） */
 @media (max-width: 768px) {
   body.bg-custom::before {
-    /* 小屏幕设备 */
+    /* 小屏幕设备隐藏PC背景 */
+    display: none !important;
   }
   
   body.bg-custom-mobile::before {
-    /* 手机版本在小屏幕上显示 */
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: -1;
-    background-size: 100% auto;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
+    /* 手机版本隐藏背景 */
+    display: none !important;
   }
 }
 
