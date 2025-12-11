@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" href="/css/style-override.css"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-custom-background-demo" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/09/08/custom-background-demo/" class="article-date">
+  <time class="dt-published" datetime="2025-09-08T06:30:00.000Z" itemprop="datePublished">2025-09-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BB%BA%E7%AB%99%E9%9A%8F%E6%83%B3/">建站随想</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/09/08/custom-background-demo/">自定义背景图片演示</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="自定义背景图片功能演示"><a href="#自定义背景图片功能演示" class="headerlink" title="自定义背景图片功能演示"></a>自定义背景图片功能演示</h1><p>本文将展示如何在博客中使用自定义背景图片功能，让您的博客页面更加个性化和美观。</p>
+<h2 id="背景图片功能介绍"><a href="#背景图片功能介绍" class="headerlink" title="背景图片功能介绍"></a>背景图片功能介绍</h2><p>通过我们新增的自定义背景图片功能，您可以：</p>
+<ol>
+<li>为整个网站或单个页面设置背景图片</li>
+<li>调整背景图片的透明度</li>
+<li>调整背景图片的尺寸和位置</li>
+<li>选择明亮或暗色主题</li>
+</ol>
+<p>这些功能可以让您的博客在保持内容可读性的同时，呈现出更加个性化的视觉效果。</p>
+<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><h3 id="全站设置"><a href="#全站设置" class="headerlink" title="全站设置"></a>全站设置</h3><p>如果您希望为整个网站设置背景图片，可以在网站配置文件 <code>_config.yml</code> 中添加以下设置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 透明背景设置</span></span><br><span class="line"><span class="attr">transparent_background:</span> <span class="literal">true</span> <span class="comment"># 启用透明背景</span></span><br><span class="line"><span class="attr">bg_image:</span> <span class="string">bg-image-1</span> <span class="comment"># 使用预设背景图片1</span></span><br><span class="line"><span class="attr">bg_opacity:</span> <span class="number">70</span> <span class="comment"># 背景图片不透明度为70%</span></span><br><span class="line"><span class="attr">bg_size:</span> <span class="string">contain</span> <span class="comment"># 背景图片尺寸为完整显示</span></span><br><span class="line"><span class="attr">bg_position:</span> <span class="string">center</span> <span class="comment"># 背景图片位置为居中</span></span><br><span class="line"><span class="attr">dark_theme:</span> <span class="literal">false</span> <span class="comment"># 使用明亮主题</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="单页面设置"><a href="#单页面设置" class="headerlink" title="单页面设置"></a>单页面设置</h3><p>如果您只想为特定页面设置背景图片，可以在文章的Front-matter中添加相关设置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章标题</span></span><br><span class="line"><span class="attr">transparent_background:</span> <span class="literal">true</span> <span class="comment"># 启用透明背景</span></span><br><span class="line"><span class="attr">bg_image:</span> <span class="string">custom</span> <span class="comment"># 使用自定义背景图片</span></span><br><span class="line"><span class="attr">custom_bg_image:</span> <span class="string">/images/your-image.jpg</span> <span class="comment"># 自定义背景图片路径</span></span><br><span class="line"><span class="attr">bg_opacity:</span> <span class="number">30</span> <span class="comment"># 背景图片不透明度为30%</span></span><br><span class="line"><span class="attr">bg_size:</span> <span class="string">width-100</span> <span class="comment"># 背景图片宽度100%，高度自适应</span></span><br><span class="line"><span class="attr">bg_position:</span> <span class="string">top</span> <span class="comment"># 背景图片顶部对齐</span></span><br><span class="line"><span class="attr">dark_theme:</span> <span class="literal">true</span> <span class="comment"># 使用暗色主题</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="预设背景图片"><a href="#预设背景图片" class="headerlink" title="预设背景图片"></a>预设背景图片</h2><p>系统提供了5张预设背景图片，您可以通过设置 <code>bg_image</code> 为 <code>bg-image-1</code> 到 <code>bg-image-5</code> 来使用它们。</p>
+<h2 id="自定义背景图片"><a href="#自定义背景图片" class="headerlink" title="自定义背景图片"></a>自定义背景图片</h2><p>如果您想使用自己的图片作为背景，需要：</p>
+<ol>
+<li>将 <code>bg_image</code> 设置为 <code>custom</code></li>
+<li>将 <code>custom_bg_image</code> 设置为您的图片路径</li>
+<li>将图片放置在 <code>/source/images/</code> 目录下的适当位置</li>
+</ol>
+<h2 id="透明度设置"><a href="#透明度设置" class="headerlink" title="透明度设置"></a>透明度设置</h2><p>您可以调整背景图片的透明度：</p>
+<ul>
+<li><code>bg_opacity</code>: 背景图片的不透明度，值范围为10到100，以10为步长</li>
+</ul>
+<p>在新版设计中，所有内容区块都是完全透明的，只有文字本身带有阴影以确保可读性。这样背景图片可以完全展示，不会被内容区块遮挡。</p>
+<h2 id="背景图片尺寸设置"><a href="#背景图片尺寸设置" class="headerlink" title="背景图片尺寸设置"></a>背景图片尺寸设置</h2><p>您可以通过设置 <code>bg_size</code> 来调整背景图片的显示尺寸：</p>
+<ul>
+<li><code>width-100</code>: 宽度100%，高度自适应（保持比例，<strong>默认推荐</strong>）</li>
+<li><code>contain</code>: 完整显示图片，确保整个图片都可见（可能会有空白）</li>
+<li><code>auto</code>: 使用图片原始尺寸</li>
+<li><code>100</code>: 拉伸填满整个屏幕</li>
+<li><code>height-100</code>: 高度100%，宽度自适应（保持比例）</li>
+<li><code>cover</code>: 覆盖整个区域（可能裁剪部分图片）</li>
+</ul>
+<h2 id="背景图片位置设置"><a href="#背景图片位置设置" class="headerlink" title="背景图片位置设置"></a>背景图片位置设置</h2><p>您可以通过设置 <code>bg_position</code> 来调整背景图片的位置：</p>
+<ul>
+<li><code>top</code>: 顶部对齐（<strong>默认推荐</strong>）</li>
+<li><code>center</code>: 居中显示</li>
+<li><code>bottom</code>: 底部对齐</li>
+<li><code>left</code>: 左侧对齐</li>
+<li><code>right</code>: 右侧对齐</li>
+</ul>
+<p>这些设置可以帮助您更好地控制背景图片的显示效果，确保重要部分能够正确显示。</p>
+<h2 id="背景滚动模式设置"><a href="#背景滚动模式设置" class="headerlink" title="背景滚动模式设置"></a>背景滚动模式设置</h2><p>您可以通过设置 <code>bg_scroll</code> 来控制背景图片是否随页面滚动：</p>
+<ul>
+<li><code>true</code>: 背景图片随页面滚动（<strong>默认</strong>）<ul>
+<li>适合长图作为背景，随着页面滚动可以看到图片的不同部分</li>
+<li>在文章末尾可以看到背景图片的底部</li>
+</ul>
+</li>
+<li><code>false</code>: 背景图片固定不动<ul>
+<li>适合需要始终显示的背景图片</li>
+<li>无论页面滚动到哪里，背景图片位置不变</li>
+</ul>
+</li>
+</ul>
+<p>选择合适的滚动模式可以增强用户体验，特别是对于长图背景，设置为随页面滚动可以展示更多图片内容。</p>
+<h2 id="暗色主题"><a href="#暗色主题" class="headerlink" title="暗色主题"></a>暗色主题</h2><p>如果您的背景图片颜色较深，可以启用暗色主题，使文字颜色变为浅色，提高可读性：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">dark_theme:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h2><p>本页面就是使用自定义背景图片的一个示例。您可以看到：</p>
+<ul>
+<li>背景图片使用了网站中已有的图片</li>
+<li>背景图片透明度设置为30%</li>
+<li>背景图片尺寸设置为宽度100%(width-100)，不裁剪宽度</li>
+<li>背景图片位置设置为顶部对齐(top)</li>
+<li>背景图片随页面滚动(scroll)，可以看到图片的不同部分</li>
+<li>所有区块背景完全透明，只有文字可见</li>
+<li>使用了明亮主题</li>
+</ul>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li>选择背景图片时，尽量选择不会影响文字可读性的图片</li>
+<li>如果背景图片较为复杂，建议提高内容区域的不透明度</li>
+<li>对于深色背景图片，建议启用暗色主题</li>
+<li>背景图片尺寸过大可能会影响页面加载速度</li>
+</ol>
+<hr>
+<p>希望这个功能能够帮助您打造更加个性化的博客！ </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/09/08/custom-background-demo/" data-id="cmfp09qat000f6wui1wuibg0o" data-title="自定义背景图片演示" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%B7%E5%BC%8F%E8%AE%BE%E8%AE%A1/" rel="tag">样式设计</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AB%99%E7%82%B9%E6%90%AD%E5%BB%BA/" rel="tag">站点搭建</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-记食物中毒的一晚" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/09/08/%E8%AE%B0%E9%A3%9F%E7%89%A9%E4%B8%AD%E6%AF%92%E7%9A%84%E4%B8%80%E6%99%9A/" class="article-date">
+  <time class="dt-published" datetime="2025-09-08T02:02:25.000Z" itemprop="datePublished">2025-09-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB%E5%88%86%E4%BA%AB/">生活分享</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/09/08/%E8%AE%B0%E9%A3%9F%E7%89%A9%E4%B8%AD%E6%AF%92%E7%9A%84%E4%B8%80%E6%99%9A/">记食物中毒的一晚</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>悔不该馋嘴，我感觉这辈子受过的痛加起来都没有前天晚上的痛来的猛烈。</p>
+<p>起因是这样的，上周的某天我在无所事事的逛着朴朴，发现虾正在打折， 而且力度还不低，半斤明虾只要13块。于是本应该少吃海鲜的我鬼使神差的买了半斤，顺带买了半斤梭子蟹。坏运气没有立刻降临，那天的虾蟹质量都很不错，尤其是梭子蟹，口感又嫩又甜。真让人唇齿留香、念念不忘。接着下一天晚上我又买了半斤虾，再下一天，也就是上周六的时候，意外发生了。</p>
+<p>我还是按惯例买了半斤虾，想买螃蟹的时候正好售罄了，这时我看见了旁边有单卖的母大闸蟹，个头也还不错，于是就一起买了回来。虾还是依旧鲜活好吃，下锅的时候差点跳出来，水溅到身上滋滋的痛，可是吃螃蟹的时候，问题出现了。螃蟹买来的时候没有什么异常，一对大钳子一直想夹我。出锅的时候就初现端倪了，锅里的水居然是黄色的，那种近乎屎黄的颜色，很奇怪。当时我是和鸡蛋一起蒸的，鸡蛋定时15分钟螃蟹定时25分钟，在15分钟结束我去拿鸡蛋的时候我还疑惑，怎么会有这个颜色的水，之前没见到过啊？但我居然没多想，就让他那样蒸下去了。熟了以后拿起来吃，感觉也怪怪的，螃蟹拿在手上没有闻到那种清香的味道（但也没有闻到很大的异味）。吃腿和钳子的时候没什么奇怪，我还吐槽说难得有一次这个腿肉和钳肉这么好剥离，一拉就出来了，问题出在打开蟹壳以后！</p>
+<p>剥开蟹壳，一股淡淡的臭味飘出来，原本是蟹膏和蟹黄的位置被一滩黄绿色的怪水占据，碰到一下手上都像沾了shit一样恶心。肉上也沾到了一点这种粘液，我没多想因为我一直都不怎么吃蟹膏，我觉得这种黏黏的物质吃起来很奇怪，都是避开着吃，除了最后一口肉上沾到了一点汁，我没在意就一口吃下去了，顿时一种恶心的反胃感袭来，嘴里也一阵苦涩的味道，我赶紧喝了口水漱漱口，匆匆结束了这次吃蟹。</p>
+<p>痛苦发生在当天晚上凌晨两点。一点半的时候我打完游戏，带着困倦的身子上床入睡，不到二十分钟就被一股痛感惊醒。迷迷糊糊的我还不清楚发生了什么事，只感觉身体脱力，小腹一阵一阵的疼，我以为是坐在床上压迫着肚子的原因，起身去椅子上半躺下，结果痛感一点都没有缓解。我慢慢开始意识模糊出冷汗，我以为是空调太低吹出病了，看一眼遥控器只开到了27°最小风，我彻底不知道怎么办了，只能先把门推开呼吸一下新鲜空气，让热空气勉强维持一下我的意识。时间一分一秒过去，我额头上的汗珠越来越大，突然感觉肠胃翻滚，吐意袭来，我赶紧冲出去阳台洗手池吐了一些，然后就吐不出来了。吐完以后我感觉自己稍微恢复了一点点，于是去阳台拿毛巾擦了一下脖子以上部分，仅仅是这样也耗尽了我的所有力气，差点没有力气走这几步路从阳台回到房间里。<br>接着又是漫长的煎熬，持续的疼痛和流汗让我一度想交代后事。我一直在纠结要不要挂120和他们说一下我的情况，要不要和舍友说我可能要死了，要不要上网搜一搜我这是什么症状。最后我什么都没做，想着说要是真死了就死了吧，我命要是真这么薄那就不活了，干他丫的。顺带一提，当时我完全没想到可能是吃了螃蟹的问题，我还在想是不是那天吃了太多的薯片薯条，还是前几天连着吃kfc吃伤了胃。</p>
+<p>我就在这种晕乎乎的幻想中痛并折磨着熬过了长达两小时的噩梦。等到我逐渐感觉理智开始恢复的时候，打开手机一看已经是凌晨四点了。是的，我被疼痛折磨了整整两个小时，期间我一直紧抓着我的手机放在旁边，想着万一出事了还能用仅剩的意识去挂一个120，并且寄希望于他们能识别到我的ip那样即使我晕倒之前来不及说我的地址他们也能找到我。我终于清醒了，虽然并不完全，但我已经能正常思考了。我先去阳台拿了毛巾把上身都擦了一遍，然后坐下来确认了一遍，我真的恢复了一些。休息了几分钟以后，我打算睡下去，因为我的精神已经不再支持我熬下去了，我需要立刻得到休息。但是当我躺下的时候，那种绞痛的恐惧再次扑向我，我立刻起身试图摆脱，但这就意味着我不能睡觉了，我只能醒着。</p>
+<p>实在没什么事情能做，在缓了大半小时以后，我还是打开了电脑，把我的一些情况都和他说了，让他判断一下是什么问题。gpt说可能是急性肠胃炎、急性胰腺炎也可能是食物中毒，这时我才意识到那个螃蟹才可能是罪魁祸首，于是把吃螃蟹的情况都和他说了，基本确定了就是食物中毒的症状（因为和其他症状对不太上，而且我才知道急性肠胃炎和胰腺炎发作的时候会持续痛五六个小时甚至更久，gpt说我痛两小时就缓解了不符合那种情况，太吓人了吧，得了这种病跟走一趟鬼门关没区别！）</p>
+<!-- 警告/提示框模板 -->
+<!-- 使用方法: 复制整个代码块，然后替换 "提示标题" 和 "即使是活鲜也存在疾病、寄生虫感染或者内脏腐烂的可能" -->
+
+<div style="background-color: rgba(255, 243, 205, 0.5); border-left: 4px solid #f39c12; padding: 10px; margin: 10px 0; border-radius: 3px;">
+<h4 style="margin-top: 0; margin-bottom: 8px; color: #d35400; font-size: 1.1em;">⚠️ 发现海鲜情况异常时，千万谨慎！</h4>
+<p style="margin: 5px 0;">即使是活鲜也存在疾病、寄生虫感染或者内脏腐烂的可能</p>
+</div>
+
+<!-- 类型变体 -->
+<!-- 
+信息框 - 蓝色: 
+背景色: rgba(217, 237, 247, 0.5)
+边框色: #3498db
+标题色: #2980b9
+图标: ℹ️
+
+成功框 - 绿色:
+背景色: rgba(223, 240, 216, 0.5)
+边框色: #2ecc71
+标题色: #27ae60
+图标: ✅
+
+警告框 - 黄色:
+背景色: rgba(255, 243, 205, 0.5)
+边框色: #f39c12
+标题色: #d35400
+图标: ⚠️
+
+错误框 - 红色:
+背景色: rgba(242, 222, 222, 0.5)
+边框色: #e74c3c
+标题色: #c0392b
+图标: ❌
+--> 
+<!-- 侧边栏引用模板 -->
+<!-- 使用方法: 复制整个代码块，然后替换 "祸从口入" 和 "沃兹·基硕德" -->
+
+<blockquote style="border-left: 4px solid #e25c1e; padding: 10px 15px; background-color: #f9f9f9; margin: 15px 0;">
+  <p style="margin: 0 0 10px 0; font-style: italic; font-size: 1.1em; font-weight: 400;">祸从口入</p>
+  <footer style="font-size: 0.9em; color: #666; text-align: right;">— <cite>沃兹·基硕德</cite></footer>
+</blockquote> 
+
+<!-- 样式变体 -->
+<!-- 
+经典灰:
+边框颜色: #ccc
+背景颜色: #f9f9f9
+
+紫色主题:
+边框颜色: #6a5acd
+背景颜色: #f8f8ff
+
+绿色主题:
+边框颜色: #3cb371
+背景颜色: #f0fff0
+
+蓝色主题:
+边框颜色: #4682b4
+背景颜色: #f0f8ff
+--> 
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/09/08/%E8%AE%B0%E9%A3%9F%E7%89%A9%E4%B8%AD%E6%AF%92%E7%9A%84%E4%B8%80%E6%99%9A/" data-id="cmfp09qaw000o6wui912x6zc7" data-title="记食物中毒的一晚" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-神经网络知识学习" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/09/05/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time class="dt-published" datetime="2025-09-05T06:15:27.000Z" itemprop="datePublished">2025-09-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/">知识充电</a>►<a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/%E5%8E%9F%E7%90%86%E7%9F%A5%E8%AF%86/">原理知识</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/09/05/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/">神经网络知识学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>今天阅读了一篇博客，里面分享了一个PPT让我突然对神经网络起了兴趣：<a target="_blank" rel="noopener" href="https://www.yigegongjiang.com/2025/AI/%E3%80%82">https://www.yigegongjiang.com/2025/AI/。</a><br>其实之前毕设做的也是神经网络相关，只不过那时候太忙，到毕设结束都没真正搞懂注意力机制、反向传播和卷积CNN的底层原理，迷迷糊糊的就结束了。<br>话不多说，让我们开始正文的分享吧。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><hr>
+<div style="background-color: rgba(236, 179, 229, 0.2); border-left: 4px solid #3498db; padding: 10px; margin: 10px 0; border-radius: 3px; max-width: 85%;">
+<h3 style="margin-top: 0; margin-bottom: 8px; color: #2980b9; font-size: 1.1em;">引言</h3>
+<p style="margin: 5px 0;">吸引我注意的就是这第一句话，我的思考是：人脑的智能都是由那些微小的细胞和神经元产生的，如果足够大的脑容量、足够多的神经元就能够自发孕育出智能，那用同样的办法我们也能通过足够多的人工神经元去模拟生物大脑中的神经元。真神奇！</p>
+<p style="margin: 5px 0;">但显然，无论是生物神经系统还是现代神经网络，都不是能简单理解的东西，所以我写下这篇博客用于记录我的学习.</p>
+</div>
+
+<div style="text-align: center; margin-bottom: 15px;">
+  <img src="/images/2_神经网络_1.png" alt="" width="75%" style="display: block; margin: 0 auto;">
+  <p style="margin: 5px 0; font-size: 0.9em;"><strong>神经网络结构图</strong></p>
+</div>
+
+<p>顺带一提，我一直都觉得随着技术发展，ai的token数能变得越来越大到我们难以想象的数量级，那时的ai是否会成为真正的互联网万事通？也有可能在过程中迸发出更新的智能，从而做到自己更新自己，自己对自己进行迭代升级，再接着就是智械危机爆发？hhh好吧还早着呢</p>
+<div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin: 20px 0;">
+  <div style="width: 48%; margin-bottom: 10px;">
+    <img src="/images/2_神经网络_2.png" alt="" style="width: 100%; border-radius: 5px;">
+    <p style="text-align: center; margin: 5px 0; color: #666; font-size: 0.9em;"><strong>二元感知机难以升维</strong></p>
+  </div>
+  <div style="width: 48%; margin-bottom: 10px;">
+    <img src="/images/2_神经网络_3.png" alt="" style="width: 100%; border-radius: 5px;">
+    <p style="text-align: center; margin: 5px 0; color: #666; font-size: 0.9em;"><strong>早期AI遭遇寒冬</strong></p>
+  </div>
+</div>
+
+<h2 id="反向传播的理论"><a href="#反向传播的理论" class="headerlink" title="反向传播的理论"></a>反向传播的理论</h2><p>正向传播是指数据从输入层流向输出层，反方向传播则是在训练的时候，通过计算</p>
+<p>此处插入image4</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/09/05/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/" data-id="cmfp09qav000i6wui9ix93i3a" data-title="神经网络知识学习" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-简易博客部署感受" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/09/05/%E7%AE%80%E6%98%93%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E6%84%9F%E5%8F%97/" class="article-date">
+  <time class="dt-published" datetime="2025-09-05T05:12:29.000Z" itemprop="datePublished">2025-09-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%BB%BA%E7%AB%99%E9%9A%8F%E6%83%B3/">建站随想</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/09/05/%E7%AE%80%E6%98%93%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E6%84%9F%E5%8F%97/">简易博客部署感受</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>今天我试着部署了一个简易的本地博客，用于记录我最近在工作学习中的心得和体会。这个博客不会在公网上开放，我只在本地搭建一个用于替代记事本的内容。</p>
+<h2 id="关于-Markdown-与工具"><a href="#关于-Markdown-与工具" class="headerlink" title="关于 Markdown 与工具"></a>关于 Markdown 与工具</h2><p>我其实不太会用.md的语法，这可能会让我的博客看起来有点不那么美观。不过问题不大，因为cursor会帮我解决这一切。</p>
+<h2 id="部署感受与未来构想"><a href="#部署感受与未来构想" class="headerlink" title="部署感受与未来构想"></a>部署感受与未来构想</h2><p>整体来说，部署一个基于hexo的现成博客还是很轻松的，并没有什么难度。我在想如果以后要用一个正式一点、美观一点的博客站，并且买一个域名的话，工作量会不会比较大呢？之前又在L站上看见一个完整版的教程，好复杂，让人望而生却。</p>
+<p>不知道买了域名以后，还要不要再买个VPS去运营这个网站。反正不盈利，索性简单点好。这个博客会不会有其他人看见都说不定。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>好了，作为开篇之作，这篇感受帖就写到这里吧。也许后面我会先试着优化一下已有的hexo框架，再考虑搭建正经的博客。</p>
+<p>感谢你能看到这里～</p>
+<p>在这里手动感谢一下开源博客项目：<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo?tab=readme-ov-file">Hexo</a>。也许我发工资以后会打赏支持一下也说不定。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/09/05/%E7%AE%80%E6%98%93%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E6%84%9F%E5%8F%97/" data-id="cmfp09qaw000m6wui0uokaqyj" data-title="简易博客部署感受" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AB%99%E7%82%B9%E6%90%AD%E5%BB%BA/" rel="tag">站点搭建</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BB%BA%E7%AB%99%E9%9A%8F%E6%83%B3/">建站随想</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E5%88%86%E4%BA%AB/">生活分享</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/">知识充电</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/%E5%8E%9F%E7%90%86%E7%9F%A5%E8%AF%86/">原理知识</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%AA%E5%88%86%E7%B1%BB/" rel="tag">未分类</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%B7%E5%BC%8F%E8%AE%BE%E8%AE%A1/" rel="tag">样式设计</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AB%99%E7%82%B9%E6%90%AD%E5%BB%BA/" rel="tag">站点搭建</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">学习</a> <a href="/tags/%E6%9C%AA%E5%88%86%E7%B1%BB/" style="font-size: 20px;">未分类</a> <a href="/tags/%E6%A0%B7%E5%BC%8F%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">样式设计</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">生活</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">神经网络</a> <a href="/tags/%E7%AB%99%E7%82%B9%E6%90%AD%E5%BB%BA/" style="font-size: 15px;">站点搭建</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">December 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">September 2025</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/12/11/%E6%B4%97%E7%89%99%E5%A5%BD%E7%96%BC/">洗牙好疼</a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/08/%E5%91%BC%E5%90%B8%E6%9C%BA%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C%E5%88%86%E4%BA%AB/">呼吸机使用体验分享</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/04/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6%E5%92%8Cai%E4%BD%BF%E7%94%A8%E6%9C%89%E6%84%9F/">项目进度和ai使用有感</a>
+          </li>
+        
+          <li>
+            <a href="/2025/10/21/%E6%A3%80%E6%9F%A5%E7%BB%93%E6%9E%9C%E5%87%BA%E6%9D%A5%E4%BA%86/">检查结果出来了</a>
+          </li>
+        
+          <li>
+            <a href="/2025/10/16/%E7%9D%A1%E7%9C%A0%E6%A3%80%E6%9F%A5%E6%9C%89%E6%84%9F/">睡眠检查有感</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
