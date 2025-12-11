@@ -350,11 +350,17 @@ hr {
 /* ===== 手机端强制隐藏背景修复 ===== */
 /* 在小屏幕设备上强制隐藏所有背景和黑色元素 */
 @media (max-width: 768px) {
+  /* 强制隐藏所有背景伪元素 */
   body::before,
-  body::after {
+  body::after,
+  body.custom-background::before,
+  body.custom-background::after,
+  .android-device.custom-background::before,
+  .android-device.custom-background::after {
     display: none !important;
     visibility: hidden !important;
     background: none !important;
+    height: 0 !important;
   }
   
   /* 隐藏导航栏黑色背景 */
