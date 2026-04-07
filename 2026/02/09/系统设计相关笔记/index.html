@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>系统设计相关笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="最近在看阮一峰周刊的时候，无意间发现了这个网站，我感觉很合我胃口，讲的也很到位，在这里分享一下：https:&#x2F;&#x2F;blog.algomaster.io&#x2F;p&#x2F;30-system-design-concepts。他的文章总是会拓展出很多方面，我第一次读他写的博客时，还是他在介绍从小到大的系统应该如何设计，挺有意思的，再加上他对自己博客中的很多内容都能够再一次跳转到另外一条已写过的博客，对于我这种总是要依">
+<meta property="og:type" content="article">
+<meta property="og:title" content="系统设计相关笔记">
+<meta property="og:url" content="http://example.com/2026/02/09/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最近在看阮一峰周刊的时候，无意间发现了这个网站，我感觉很合我胃口，讲的也很到位，在这里分享一下：https:&#x2F;&#x2F;blog.algomaster.io&#x2F;p&#x2F;30-system-design-concepts。他的文章总是会拓展出很多方面，我第一次读他写的博客时，还是他在介绍从小到大的系统应该如何设计，挺有意思的，再加上他对自己博客中的很多内容都能够再一次跳转到另外一条已写过的博客，对于我这种总是要依">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-02-09T06:05:40.000Z">
+<meta property="article:modified_time" content="2026-04-07T01:36:34.479Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="系统设计">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" href="/css/style-override.css"><link rel="stylesheet" href="/css/official-document.css"><link rel="stylesheet" href="/css/transparent-background.css"><link rel="stylesheet" href="/css/android-fixes.css"><style>
+            body.bg-custom::before,
+            body.bg-custom::after {
+              background-image: url('/images/backgrounds/1_image_imgupscaler.ai_Upscaler_4K.png');
+            }
+          
+            body.bg-custom-mobile::before,
+            body.bg-custom-mobile::after {
+              background-image: url('/images/backgrounds/c56de478-ade8-4c94-a356-3bfafc7b52e6.png');
+            }
+          </style></head>
+
+<body class="official-document transparent-background custom-background bg-custom bg-custom-mobile bg-opacity-30 bg-width-100 bg-top bg-scroll">
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-系统设计相关笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/09/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2026-02-09T06:05:40.000Z" itemprop="datePublished">2026-02-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/">知识充电</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      系统设计相关笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>最近在看阮一峰周刊的时候，无意间发现了这个网站，我感觉很合我胃口，讲的也很到位，在这里分享一下：<a target="_blank" rel="noopener" href="https://blog.algomaster.io/p/30-system-design-concepts%E3%80%82">https://blog.algomaster.io/p/30-system-design-concepts。</a><br>他的文章总是会拓展出很多方面，我第一次读他写的博客时，还是他在介绍从小到大的系统应该如何设计，挺有意思的，再加上他对自己博客中的很多内容都能够再一次跳转到另外一条已写过的博客，对于我这种总是要依靠再搜索来了解专业术语的人很有帮助。<br>本文应该也不会写的过于详细，毕竟是拾人牙慧，我打算从详细的笔记中挑选一部分重点进行分享，也能结合一些我编程的感受吧。</p>
+<p>好吧这一篇实际上烂尾了，因为用ai折腾了一下笔记以后发现效果不是很好就废弃了，也贴在这里方便以后观看吧。</p>
+<h2 id="重点内容"><a href="#重点内容" class="headerlink" title="重点内容"></a>重点内容</h2><h3 id="1-Client-Server-Architecture"><a href="#1-Client-Server-Architecture" class="headerlink" title="1) Client-Server Architecture"></a>1) Client-Server Architecture</h3><ul>
+<li><strong>是什么</strong>：客户端负责交互，服务器负责业务处理与数据访问。</li>
+<li><strong>为什么重要</strong>：它决定职责边界，后续 API、鉴权、日志、扩容都依赖这个边界。</li>
+<li><strong>实现关注点</strong>：业务规则放服务端；接口契约稳定；客户端尽量无状态。</li>
+</ul>
+<h3 id="4-Proxy-Reverse-Proxy（以-NGINX-为主）"><a href="#4-Proxy-Reverse-Proxy（以-NGINX-为主）" class="headerlink" title="4) Proxy &#x2F; Reverse Proxy（以 NGINX 为主）"></a>4) Proxy &#x2F; Reverse Proxy（以 NGINX 为主）</h3><ul>
+<li><strong>是什么</strong>：反向代理作为统一入口，接收请求后转发给后端服务。</li>
+<li><strong>为什么重要</strong>：入口层可以集中做 TLS、路由、限流、日志与基础防护。</li>
+<li><strong>实现关注点</strong>：后端不直接暴露公网；配置超时与健康检查；保留真实来源 IP。</li>
+</ul>
+<h3 id="6-HTTP-HTTPS"><a href="#6-HTTP-HTTPS" class="headerlink" title="6) HTTP &#x2F; HTTPS"></a>6) HTTP &#x2F; HTTPS</h3><ul>
+<li><strong>是什么</strong>：HTTP 是请求-响应协议，HTTPS 在其上增加 TLS 加密。</li>
+<li><strong>为什么重要</strong>：是 Web 系统默认通信基础，直接影响安全性与接口一致性。</li>
+<li><strong>实现关注点</strong>：统一状态码语义；全站 HTTPS；Header 规范（认证、追踪、缓存）。</li>
+</ul>
+<h3 id="8-REST-API"><a href="#8-REST-API" class="headerlink" title="8) REST API"></a>8) REST API</h3><ul>
+<li><strong>是什么</strong>：围绕资源建模，通过标准方法操作资源。</li>
+<li><strong>为什么重要</strong>：减少接口歧义，便于前后端协作和服务治理。</li>
+<li><strong>实现关注点</strong>：路径按资源命名；方法语义一致；响应格式统一；版本策略清晰。</li>
+</ul>
+<h3 id="10-Databases"><a href="#10-Databases" class="headerlink" title="10) Databases"></a>10) Databases</h3><ul>
+<li><strong>是什么</strong>：系统的持久化核心，保存业务长期数据。</li>
+<li><strong>为什么重要</strong>：业务正确性、查询效率、事务边界都落在数据层。</li>
+<li><strong>实现关注点</strong>：先设计读写路径再选型；关键表先定义主键、索引和约束。</li>
+</ul>
+<h3 id="11-SQL-vs-NoSQL（MySQL-作为主干）"><a href="#11-SQL-vs-NoSQL（MySQL-作为主干）" class="headerlink" title="11) SQL vs NoSQL（MySQL 作为主干）"></a>11) SQL vs NoSQL（MySQL 作为主干）</h3><ul>
+<li><strong>是什么</strong>：SQL 偏结构化与事务一致性，NoSQL 偏灵活模型与横向扩展。</li>
+<li><strong>为什么重要</strong>：选型错误会导致后续查询复杂、扩容成本高。</li>
+<li><strong>实现关注点</strong>：核心交易数据优先 MySQL；NoSQL 按场景补充，不做整体替换。</li>
+</ul>
+<h3 id="14-Load-Balancer"><a href="#14-Load-Balancer" class="headerlink" title="14) Load Balancer"></a>14) Load Balancer</h3><ul>
+<li><strong>是什么</strong>：把请求分配到多台服务实例。</li>
+<li><strong>为什么重要</strong>：是水平扩展和高可用的基础能力。</li>
+<li><strong>实现关注点</strong>：分发策略 + 健康检查必须同时具备；失败重试策略与超时配置要统一。</li>
+</ul>
+<h3 id="16-Replication"><a href="#16-Replication" class="headerlink" title="16) Replication"></a>16) Replication</h3><ul>
+<li><strong>是什么</strong>：将主库数据同步到副本，提升读能力与容灾能力。</li>
+<li><strong>为什么重要</strong>：单库压力与单点风险都能先被缓解。</li>
+<li><strong>实现关注点</strong>：明确读主&#x2F;读从边界；监控复制延迟；故障切换流程可演练。</li>
+</ul>
+<h3 id="19-Caching"><a href="#19-Caching" class="headerlink" title="19) Caching"></a>19) Caching</h3><ul>
+<li><strong>是什么</strong>：把高频数据放入更快存储，减少数据库和服务计算压力。</li>
+<li><strong>为什么重要</strong>：通常是响应时间优化中收益最高的一层。</li>
+<li><strong>实现关注点</strong>：优先 Cache Aside；设置 TTL；明确缓存失效与回源策略。</li>
+</ul>
+<h3 id="24-WebSocket"><a href="#24-WebSocket" class="headerlink" title="24) WebSocket"></a>24) WebSocket</h3><ul>
+<li><strong>是什么</strong>：基于长连接的双向通信机制，服务端可主动推送。</li>
+<li><strong>为什么重要</strong>：实时场景（聊天、状态推送、协作）依赖它。</li>
+<li><strong>实现关注点</strong>：连接生命周期管理（建立&#x2F;心跳&#x2F;断线重连）；与普通 HTTP 接口分层。</li>
+</ul>
+<h3 id="29-API-Gateway"><a href="#29-API-Gateway" class="headerlink" title="29) API Gateway"></a>29) API Gateway</h3><ul>
+<li><strong>是什么</strong>：外部请求统一入口，集中处理认证、路由、限流、监控。</li>
+<li><strong>为什么重要</strong>：把通用治理能力前置，减少后端服务重复实现。</li>
+<li><strong>实现关注点</strong>：网关做治理不做核心业务；与 NGINX 边界清晰；可观测性统一接入。</li>
+</ul>
+<hr>
+<h2 id="概念速览（其余-19-项）"><a href="#概念速览（其余-19-项）" class="headerlink" title="概念速览（其余 19 项）"></a>概念速览（其余 19 项）</h2><h3 id="请求接入与接口协议（1-9）"><a href="#请求接入与接口协议（1-9）" class="headerlink" title="请求接入与接口协议（1-9）"></a>请求接入与接口协议（1-9）</h3><ul>
+<li><strong>2 IP Address</strong>：网络地址标识，所有访问最终都落到 IP。</li>
+<li><strong>3 DNS</strong>：将域名解析到 IP，是请求进入系统前的关键一步。</li>
+<li><strong>5 Latency</strong>：端到端延迟指标，影响用户实际体验。</li>
+<li><strong>7 APIs</strong>：定义服务能力暴露方式，是系统协作契约。</li>
+<li><strong>9 GraphQL</strong>：客户端按需取字段，适合复杂聚合查询场景。</li>
+</ul>
+<h3 id="数据存储与查询组织（10-11-15-18-20-22）"><a href="#数据存储与查询组织（10-11-15-18-20-22）" class="headerlink" title="数据存储与查询组织（10-11, 15, 18, 20, 22）"></a>数据存储与查询组织（10-11, 15, 18, 20, 22）</h3><ul>
+<li><strong>15 Database Indexing</strong>：用索引加速查询，但会增加写入维护成本。</li>
+<li><strong>18 Vertical Partitioning</strong>：按字段拆分，降低单次查询负载。</li>
+<li><strong>20 Denormalization</strong>：通过冗余减少联表查询，提升读取效率。</li>
+<li><strong>22 Blob Storage</strong>：存大文件（图片&#x2F;视频&#x2F;附件），数据库存元数据。</li>
+</ul>
+<h3 id="扩展与高可用（12-14-16-17-19-21-23）"><a href="#扩展与高可用（12-14-16-17-19-21-23）" class="headerlink" title="扩展与高可用（12-14, 16-17, 19, 21, 23）"></a>扩展与高可用（12-14, 16-17, 19, 21, 23）</h3><ul>
+<li><strong>12 Vertical Scaling</strong>：提升单机配置，实施简单但上限明显。</li>
+<li><strong>13 Horizontal Scaling</strong>：增加实例横向扩容，是长期方向。</li>
+<li><strong>17 Sharding</strong>：按分片键拆数据，解决超大数据规模问题。</li>
+<li><strong>21 CAP Theorem</strong>：网络分区存在时，一致性与可用性需要权衡。</li>
+<li><strong>23 CDN</strong>：静态内容就近分发，降低跨地域访问延迟。</li>
+</ul>
+<h3 id="实时通信与系统解耦（24-27）"><a href="#实时通信与系统解耦（24-27）" class="headerlink" title="实时通信与系统解耦（24-27）"></a>实时通信与系统解耦（24-27）</h3><ul>
+<li><strong>25 Webhooks</strong>：事件触发后主动回调外部系统。</li>
+<li><strong>26 Microservices</strong>：按业务能力拆分服务，支持独立部署与演进。</li>
+<li><strong>27 Message Queues</strong>：异步解耦与削峰填谷，降低同步链路压力。</li>
+</ul>
+<h3 id="统一治理与可靠性（28-30）"><a href="#统一治理与可靠性（28-30）" class="headerlink" title="统一治理与可靠性（28-30）"></a>统一治理与可靠性（28-30）</h3><ul>
+<li><strong>28 Rate Limiting</strong>：控制请求速率，防止系统被突发流量打垮。</li>
+<li><strong>30 Idempotency</strong>：重复请求只产生一次有效结果，保护关键操作。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/09/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/" data-id="cmnny878m0000e8ui4eryaw9k" data-title="系统设计相关笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/" rel="tag">系统设计</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/04/07/%E5%BF%99%E7%A2%8C%E5%8F%88%E5%85%85%E5%AE%9E%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%9C%88/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          忙碌又充实的两个月
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/01/21/%E5%8F%88%E6%98%AF%E4%B8%80%E4%B8%AA%E6%9C%88%E8%BF%87%E5%8E%BB%E4%BA%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">又是一个月过去了</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BB%BA%E7%AB%99%E9%9A%8F%E6%83%B3/">建站随想</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E5%88%86%E4%BA%AB/">生活分享</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/">知识充电</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%85%85%E7%94%B5/%E5%8E%9F%E7%90%86%E7%9F%A5%E8%AF%86/">原理知识</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%AA%E5%88%86%E7%B1%BB/" rel="tag">未分类</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="tag">神经网络</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AB%99%E7%82%B9%E6%90%AD%E5%BB%BA/" rel="tag">站点搭建</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/" rel="tag">系统设计</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">学习</a> <a href="/tags/%E6%9C%AA%E5%88%86%E7%B1%BB/" style="font-size: 20px;">未分类</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">生活</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">神经网络</a> <a href="/tags/%E7%AB%99%E7%82%B9%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">站点搭建</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">系统设计</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">April 2026</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">January 2026</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">December 2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/09/">September 2025</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/04/07/%E5%BF%99%E7%A2%8C%E5%8F%88%E5%85%85%E5%AE%9E%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%9C%88/">忙碌又充实的两个月</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/09/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/">系统设计相关笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2026/01/21/%E5%8F%88%E6%98%AF%E4%B8%80%E4%B8%AA%E6%9C%88%E8%BF%87%E5%8E%BB%E4%BA%86/">又是一个月过去了</a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/23/%E9%AB%98%E5%BC%BA%E5%BA%A6%E7%9A%84%E4%B8%80%E5%91%A8/">高强度的一周</a>
+          </li>
+        
+          <li>
+            <a href="/2025/12/11/%E6%B4%97%E7%89%99%E5%A5%BD%E7%96%BC/">洗牙好疼</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+
+      <script>
+        /**
+         * 自适应背景图片长度控制
+         * 根据页面内容长度自动调整背景图片高度
+         */
+        (function() {
+          // 检测设备类型（基于操作系统）
+          function getDeviceType() {
+            const ua = navigator.userAgent.toLowerCase();
+            
+            // 检测移动设备操作系统
+            const isMobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua);
+            
+            if (isMobile) {
+              // 进一步区分具体系统
+              if (/iphone|ipad|ipod/.test(ua)) {
+                return 'ios';
+              } else if (/android/.test(ua)) {
+                return 'android';
+              }
+              return 'mobile';
+            }
+            
+            return 'desktop'; // 桌面系统（Windows、Mac、Linux等）
+          }
+          
+          // 检测是否为安卓设备
+          function isAndroidDevice() {
+            const ua = navigator.userAgent.toLowerCase();
+            return ua.indexOf("android") > -1;
+          }
+          
+          function initAdaptiveBackground() {
+            // 检查是否启用了透明背景
+            if (!document.body.classList.contains('custom-background')) {
+              return;
+            }
+            
+            // 添加设备类型类
+            const deviceType = getDeviceType();
+            document.body.classList.add(`device-${deviceType}`);
+            
+            // 如果是移动设备，添加 mobile 类
+            if (deviceType !== 'desktop') {
+              document.body.classList.add('is-mobile');
+            } else {
+              document.body.classList.add('is-desktop');
+            }
+            
+            // 如果是安卓设备，添加安卓设备标识类
+            if (isAndroidDevice()) {
+              document.body.classList.add('android-device');
+            }
+
+            // 等待页面完全加载
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', adjustBackgroundHeight);
+            } else {
+              adjustBackgroundHeight();
+            }
+
+            // 监听窗口大小变化
+            window.addEventListener('resize', debounce(adjustBackgroundHeight, 250));
+            
+            // 监听内容变化（如果有动态内容）
+            const observer = new MutationObserver(debounce(adjustBackgroundHeight, 500));
+            observer.observe(document.body, { 
+              childList: true, 
+              subtree: true, 
+              attributes: true 
+            });
+          }
+
+          function adjustBackgroundHeight() {
+            const body = document.body;
+            
+            // 获取页面实际高度
+            const pageHeight = Math.max(
+              document.body.scrollHeight,
+              document.body.offsetHeight,
+              document.documentElement.clientHeight,
+              document.documentElement.scrollHeight,
+              document.documentElement.offsetHeight
+            );
+            
+            // 设置背景元素的高度为页面实际高度
+            const beforeStyle = document.createElement('style');
+            beforeStyle.id = 'adaptive-background-style';
+            
+            // 移除之前的样式
+            const existingStyle = document.getElementById('adaptive-background-style');
+            if (existingStyle) {
+              existingStyle.remove();
+            }
+            
+            // 设置背景元素的高度
+            beforeStyle.textContent = `
+              body.custom-background::before {
+                height: ${pageHeight}px !important;
+              }
+              
+              /* 安卓设备特殊处理 */
+              body.custom-background.android-device::before {
+                height: ${pageHeight}px !important;
+                background-size: cover !important;
+                background-position: center center !important;
+                position: fixed !important;
+              }
+            `;
+            
+            document.head.appendChild(beforeStyle);
+          }
+
+          // 防抖函数
+          function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+              const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+              };
+              clearTimeout(timeout);
+              timeout = setTimeout(later, wait);
+            };
+          }
+
+          // 初始化
+          initAdaptiveBackground();
+        })();
+      </script>
+    </body>
+</html>
